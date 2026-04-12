@@ -2,6 +2,9 @@ FROM richarvey/nginx-php-fpm:latest
 
 COPY . /var/www/html
 
+# Copia la configuración personalizada de Nginx para arreglar el Error 404
+COPY nginx.conf /etc/nginx/sites-available/default.conf
+
 # Instalación de dependencias
 RUN composer install --no-dev
 
