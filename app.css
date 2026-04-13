@@ -1,0 +1,22 @@
+/* Reseteo para que todo sea fluido */
+* {
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent; /* Quita el cuadro azul feo al tocar en móvil */
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Tipografía fluida: el texto se ajusta solo según el ancho de pantalla */
+html {
+    font-size: 16px;
+}
+
+@media (max-width: 480px) {
+    html {
+        font-size: 14px; /* Un poco más pequeño en pantallas diminutas */
+    }
+}
