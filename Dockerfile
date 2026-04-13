@@ -23,6 +23,9 @@ ENV PHP_ERRORS_STDERR 1
 ENV APP_TYPE laravel
 ENV PORT 80
 
+# SOLUCIÓN PARA EL ERROR 404 EN RUTAS DE LARAVEL
+ENV ERRORS 1
+
 EXPOSE 80
 
 # Usamos el script de arranque por defecto que ya maneja los servicios
