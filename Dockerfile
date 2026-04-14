@@ -2,8 +2,8 @@ FROM richarvey/nginx-php-fpm:latest
 
 COPY . /var/www/html
 
-# COMENTAMOS O ELIMINAMOS ESTA LÍNEA PORQUE EL ARCHIVO NO EXISTE
-# COPY nginx.conf /etc/nginx/sites-available/default.conf
+# AHORA SÍ COPIAMOS TU CONFIGURACIÓN DE NGINX
+COPY nginx.conf /etc/nginx/sites-available/default.conf
 
 # Instalación de dependencias
 RUN composer install --no-dev
