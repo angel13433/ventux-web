@@ -8,10 +8,13 @@ COPY nginx.conf /etc/nginx/sites-available/default.conf
 # Instalación de dependencias
 RUN composer install --no-dev
 
-# Permisos y Base de Datos
+# Permisos y Base de Datos (Ajustados a 777 para evitar Error 500)
 RUN touch /var/www/html/database/database.sqlite
-RUN chmod -R 775 /var/www/html/storage /var/www/html/bootstrap/cache /var/www/html/database
+RUN chmod -R 777 /var/www/html/storage /var/www/html/bootstrap/cache /var/www/html/database
 RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache /var/www/html/database
+
+# Ejecutamos migraciones para crear las tablas en Render
+RUN php artisan migrate --force
 
 # Limpiamos caché de Laravel
 RUN php artisan config:clear && php artisan route:clear
